@@ -1,11 +1,14 @@
 // scripts in package.json allow global alias for bin commands
+
 // this file is the settings for webpack
 // webpack is used to translate ES6 to lower version of JS
+// option -w is 'watching', auto recompile files on file changes
+
 // ERROR: Module build failed: TypeError: fileSystem.statSync is not a function
 // Solution: downgrade babel-loader package to version 6.2.10
 
 
-
+// Full Document: https://webpack.js.org/configuration/
 module.exports = {
     // specify the entry to be converted
     entry: "./app/js/main.js",

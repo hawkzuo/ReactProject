@@ -24,7 +24,7 @@ function ElementOld() {
 
 // ES6: function body without {} will be inline returning function
 const Welcome = ((props) =>
-    <h4> Welcome {props.first} !</h4>
+        <h4> Welcome {props.first} !</h4>
 );
 // which is equivalent to :
 const WelcomeExplicit = ((props) => {
@@ -81,5 +81,4 @@ ReactDOM.render(
     <Element />,
     document.getElementById('root')
 );
-
 
