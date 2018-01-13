@@ -1,3 +1,21 @@
+// Documentation: https://reactjs.org/docs
+
+// What is needed for a React Application:
+//  - Package Manager [Yarn; npm]
+//  - Bundler [webpack; Browserify]
+//  - Compiler [Babel]
+// *- Server [webpack-dev-server (refresh made only in RAM)]
+
+// ES6 main features
+//  - arrow functions [Improvement for 'function']
+//  - classes [OOP idea]
+//  - template literals
+//  - let / const [Improvement for 'var']
+
+// JSX main features
+//  - Embed html into JS codes
+//  - Produce React "elements"
+
 // const app = document.getElementById('root');
 // app.innerHTML = 'First app';
 
@@ -5,7 +23,6 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 
 function ElementOld() {
     let name = {
@@ -81,4 +98,3 @@ ReactDOM.render(
     <Element />,
     document.getElementById('root')
 );
-

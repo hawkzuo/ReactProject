@@ -1,85 +1,19 @@
-// const app = document.getElementById('root');
-// app.innerHTML = 'First app';
-
-// JSX style syntax -> Much like ruby erb or coffee script
+// Chrome: | -> More Tools -> Rendering [Paint Flashing]
+//
+// ReactDOM: Virtual DOM
+// Fast, observe data changes -> repainting only customized changed areas
+//
 
 import React from 'react';
 import ReactDOM from 'react-dom';
+import NameList from './components/NameList';
 
 
-function ElementOld() {
-    let name = {
-        first: "Patrick",
-        last:   "Green"
-    };
-    return (
-        <div>
-            <h1> Old JS Style </h1>
-            <h2> Example h2 block </h2>
-            <h3 className="red"> My name is {name.first} {name.last} </h3>
-        </div>
-    )
-}
 
-
-// ES6: function body without {} will be inline returning function
-const Welcome = ((props) =>
-    <h4> Welcome {props.first} !</h4>
-);
-// which is equivalent to :
-const WelcomeExplicit = ((props) => {
-    return <h4> Welcome {props.first} !</h4>
-});
-
-
-// JSX: Multiple components should be wrapped in a <div>
-// ES6: New Syntax Style
-const Element = (() => {
-    let name = {
-        first: "Patrick",
-        last:   "Green"
-    };
-
-    const names = ['a', 'b', 'c', 'd'];
-
-    const generateNameList = (() => {
-        return names.map((name, i) =>
-            <li key={i}>{name}</li>
-        )
-    });
-
-
-    // JSX: Event Handler Syntax
-    const changeHandler = ((event) => {
-        console.log(event.target.id)
-    });
-
-
-    return (
-        <div>
-            <h1> New JS Style </h1>
-            <h2> Example h2 block </h2>
-            <h3 className = "red"> My name is {name.first} {name.last} </h3>
-            <Welcome first = "oneLineVersion" last = "kkk" />
-            <WelcomeExplicit first = "returnVersion" last = "kkk" />
-            <h2> Example map callbacks in JSX & ES6 </h2>
-            <ul>
-                {names.map((name, i) =>
-                    <li key={i}>{name}</li>
-                )}
-            </ul>
-            <ul>
-                {generateNameList()}
-            </ul>
-            <input id = 'input-1' onChange={changeHandler}/>
-        </div>
-    )
-});
-
-// This is just another function call
 ReactDOM.render(
-    <Element />,
+    <div>
+      <NameList number='1'/>
+      <NameList number='2'/>
+    </div>,
     document.getElementById('root')
 );
-
-

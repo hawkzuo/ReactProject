@@ -46,6 +46,8 @@
 
 	'use strict';
 
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
@@ -56,10 +58,16 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	// const app = document.getElementById('root');
-	// app.innerHTML = 'First app';
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	// JSX style syntax -> Much like ruby erb or coffee script
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // Chrome: | -> More Tools -> Rendering [Paint Flashing]
+	//
+	// ReactDOM: Virtual DOM
+	// Fast, observe data changes -> repainting only customized changed areas
+	//
+
 
 	function ElementOld() {
 	    var name = {
@@ -112,8 +120,116 @@
 	    );
 	};
 
+	// ES6: Classes {wrap all the function into class OOP idea}
+	// React class version:
+	// ERROR: _react2.default.createClass is not a function
+	// Reason: createClass is removed from the latest version of React
+	// var AppObsolete = React.createClass({
+	//
+	//   generateNameList: function() {
+	//     var names = ['a', 'b', 'c', 'd'];
+	//
+	//     return names.map((name, i) =>
+	//         <li key={i}>{name}</li>
+	//     );
+	//   },
+	//
+	//   render: function() {
+	//     return (
+	//       <div>
+	//           <h1> New JS Style </h1>
+	//           <h2> Example h2 block </h2>
+	//           <Welcome first = "oneLineVersion" last = "kkk" />
+	//           <WelcomeExplicit first = "returnVersion" last = "kkk" />
+	//           <h2> Example map callbacks in JSX & ES6 </h2>
+	//           <ul>
+	//               {names.map((name, i) =>
+	//                   <li key={i}>{name}</li>
+	//               )}
+	//           </ul>
+	//           <ul>
+	//               {generateNameList()}
+	//           </ul>
+	//           <input id = 'input-1' onChange={changeHandler}/>
+	//       </div>
+	//     );
+	//   }
+	// })
+	// ES6 version:
+	// ERROR: Super expression must either be null or a function, not undefined
+	// Reason: Typo Component as 'component'
+
+	var App = function (_React$Component) {
+	    _inherits(App, _React$Component);
+
+	    function App() {
+	        _classCallCheck(this, App);
+
+	        return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
+	    }
+
+	    _createClass(App, [{
+	        key: 'nameWrapper',
+	        value: function nameWrapper(nameArray) {
+	            return nameArray.map(function (name, i) {
+	                return _react2.default.createElement(
+	                    'li',
+	                    { key: i },
+	                    name
+	                );
+	            });
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var nameArray = ['a', 'b', 'c', 'd'];
+	            return _react2.default.createElement(
+	                'div',
+	                null,
+	                _react2.default.createElement(
+	                    'h1',
+	                    null,
+	                    ' New JS Style '
+	                ),
+	                _react2.default.createElement(
+	                    'h2',
+	                    null,
+	                    ' Example h2 block '
+	                ),
+	                _react2.default.createElement(
+	                    'h2',
+	                    null,
+	                    ' Example map callbacks in JSX & ES6 '
+	                ),
+	                _react2.default.createElement(Welcome, { first: 'oneLineVersion', last: 'kkk' }),
+	                _react2.default.createElement(WelcomeExplicit, { first: 'returnVersion', last: 'kkk' }),
+	                _react2.default.createElement(
+	                    'ul',
+	                    null,
+	                    nameArray.map(function (name, i) {
+	                        return _react2.default.createElement(
+	                            'li',
+	                            { key: i },
+	                            name
+	                        );
+	                    })
+	                ),
+	                _react2.default.createElement(
+	                    'ul',
+	                    null,
+	                    this.nameWrapper(nameArray)
+	                )
+	            );
+	        }
+	    }]);
+
+	    return App;
+	}(_react2.default.Component);
+
 	// JSX: Multiple components should be wrapped in a <div>
 	// ES6: New Syntax Style
+
+
 	var Element = function Element() {
 	    var name = {
 	        first: "Patrick",
@@ -186,8 +302,28 @@
 	    );
 	};
 
-	// This is just another function call
-	_reactDom2.default.render(_react2.default.createElement(Element, null), document.getElementById('root'));
+	// const MyApp = ((props) => {
+	//   const element = (
+	//     <div>
+	//       <h1>Virtual DOM example</h1>
+	//       <h3>Total Rendering times: {props}</h3>
+	//     </div>
+	//
+	//   )
+	//   ReactDOM.render(
+	//       element,
+	//       document.getElementById('root')
+	//   );
+	// })
+	// let counter = 1
+	// // Function used to periodically trigger event handler
+	// setInterval(() => {
+	//   MyApp(counter)
+	//   counter += 1
+	// }, 2000)
+
+	// // This is just another function call
+	_reactDom2.default.render(_react2.default.createElement(App, null), document.getElementById('root'));
 
 /***/ }),
 /* 1 */
