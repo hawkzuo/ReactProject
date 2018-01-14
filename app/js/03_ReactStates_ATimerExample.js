@@ -6,14 +6,19 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import NameList from './components/NameList';
+import Layout from './components/03Layout';
 
+// A simple timer example
+class App extends React.Component {
 
+  render() {
+    return  <Layout />
+  }
+}
 
 ReactDOM.render(
     <div>
-      <NameList number='1'/>
-      <NameList number='2'/>
+      <App />
     </div>,
     document.getElementById('root')
 );

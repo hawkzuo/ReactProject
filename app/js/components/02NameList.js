@@ -1,5 +1,5 @@
 import React from 'react';
-import Welcome from './Welcome';
+import Welcome from './02Welcome';
 
 // ES6: function body without {} will be inline returning function
 

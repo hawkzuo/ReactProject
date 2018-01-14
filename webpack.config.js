@@ -11,7 +11,7 @@
 // Full Document: https://webpack.js.org/configuration/
 module.exports = {
     // specify the entry to be converted
-    entry: "./app/js/main.js",
+    entry: "./app/js/app.js",
     // specify the output setting of the converted file
     output: {
         path: '/Users/jianyuzuo/Workspaces/React/first_app' + '/public',
@@ -23,11 +23,13 @@ module.exports = {
                 // all .js .jsx files
                 test: /\.jsx?$/,
                 exclude: /node_modules/,
-                loader: 'babel',
+                // ERROR: ERROR in Loader /Users/jianyuzuo/Workspaces/React/first_app/node_modules/react-hot-loader/lib/index.js didn't return a function @ multi main
+                // loaders: ['react-hot', 'babel?presets[]=react,presets[]=es2015'],
+                // LOG: [WDS] Hot Module Replacement enabled.
+                loader: ['babel'],
                 query: {
                     presets: ['react', 'es2015']
                 }
-
             }
         ]
     }

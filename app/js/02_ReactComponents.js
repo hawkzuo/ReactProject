@@ -6,7 +6,7 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import NameList from './components/NameList';
+import NameList from './components/02NameList';
 
 
 // ES6: Classes {wrap all the function into class OOP idea}

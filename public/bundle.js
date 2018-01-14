@@ -56,6 +56,10 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
+	var _Layout = __webpack_require__(27);
+
+	var _Layout2 = _interopRequireDefault(_Layout);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -68,262 +72,30 @@
 	// Fast, observe data changes -> repainting only customized changed areas
 	//
 
-
-	function ElementOld() {
-	    var name = {
-	        first: "Patrick",
-	        last: "Green"
-	    };
-	    return _react2.default.createElement(
-	        'div',
-	        null,
-	        _react2.default.createElement(
-	            'h1',
-	            null,
-	            ' Old JS Style '
-	        ),
-	        _react2.default.createElement(
-	            'h2',
-	            null,
-	            ' Example h2 block '
-	        ),
-	        _react2.default.createElement(
-	            'h3',
-	            { className: 'red' },
-	            ' My name is ',
-	            name.first,
-	            ' ',
-	            name.last,
-	            ' '
-	        )
-	    );
-	}
-
-	// ES6: function body without {} will be inline returning function
-	var Welcome = function Welcome(props) {
-	    return _react2.default.createElement(
-	        'h4',
-	        null,
-	        ' Welcome ',
-	        props.first,
-	        ' !'
-	    );
-	};
-	// which is equivalent to :
-	var WelcomeExplicit = function WelcomeExplicit(props) {
-	    return _react2.default.createElement(
-	        'h4',
-	        null,
-	        ' Welcome ',
-	        props.first,
-	        ' !'
-	    );
-	};
-
-	// ES6: Classes {wrap all the function into class OOP idea}
-	// React class version:
-	// ERROR: _react2.default.createClass is not a function
-	// Reason: createClass is removed from the latest version of React
-	// var AppObsolete = React.createClass({
-	//
-	//   generateNameList: function() {
-	//     var names = ['a', 'b', 'c', 'd'];
-	//
-	//     return names.map((name, i) =>
-	//         <li key={i}>{name}</li>
-	//     );
-	//   },
-	//
-	//   render: function() {
-	//     return (
-	//       <div>
-	//           <h1> New JS Style </h1>
-	//           <h2> Example h2 block </h2>
-	//           <Welcome first = "oneLineVersion" last = "kkk" />
-	//           <WelcomeExplicit first = "returnVersion" last = "kkk" />
-	//           <h2> Example map callbacks in JSX & ES6 </h2>
-	//           <ul>
-	//               {names.map((name, i) =>
-	//                   <li key={i}>{name}</li>
-	//               )}
-	//           </ul>
-	//           <ul>
-	//               {generateNameList()}
-	//           </ul>
-	//           <input id = 'input-1' onChange={changeHandler}/>
-	//       </div>
-	//     );
-	//   }
-	// })
-	// ES6 version:
-	// ERROR: Super expression must either be null or a function, not undefined
-	// Reason: Typo Component as 'component'
-
 	var App = function (_React$Component) {
-	    _inherits(App, _React$Component);
+	  _inherits(App, _React$Component);
 
-	    function App() {
-	        _classCallCheck(this, App);
+	  function App() {
+	    _classCallCheck(this, App);
 
-	        return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
+	  }
+
+	  _createClass(App, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(_Layout2.default, null);
 	    }
+	  }]);
 
-	    _createClass(App, [{
-	        key: 'nameWrapper',
-	        value: function nameWrapper(nameArray) {
-	            return nameArray.map(function (name, i) {
-	                return _react2.default.createElement(
-	                    'li',
-	                    { key: i },
-	                    name
-	                );
-	            });
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            var nameArray = ['a', 'b', 'c', 'd'];
-	            return _react2.default.createElement(
-	                'div',
-	                null,
-	                _react2.default.createElement(
-	                    'h1',
-	                    null,
-	                    ' New JS Style '
-	                ),
-	                _react2.default.createElement(
-	                    'h2',
-	                    null,
-	                    ' Example h2 block '
-	                ),
-	                _react2.default.createElement(
-	                    'h2',
-	                    null,
-	                    ' Example map callbacks in JSX & ES6 '
-	                ),
-	                _react2.default.createElement(Welcome, { first: 'oneLineVersion', last: 'kkk' }),
-	                _react2.default.createElement(WelcomeExplicit, { first: 'returnVersion', last: 'kkk' }),
-	                _react2.default.createElement(
-	                    'ul',
-	                    null,
-	                    nameArray.map(function (name, i) {
-	                        return _react2.default.createElement(
-	                            'li',
-	                            { key: i },
-	                            name
-	                        );
-	                    })
-	                ),
-	                _react2.default.createElement(
-	                    'ul',
-	                    null,
-	                    this.nameWrapper(nameArray)
-	                )
-	            );
-	        }
-	    }]);
-
-	    return App;
+	  return App;
 	}(_react2.default.Component);
 
-	// JSX: Multiple components should be wrapped in a <div>
-	// ES6: New Syntax Style
-
-
-	var Element = function Element() {
-	    var name = {
-	        first: "Patrick",
-	        last: "Green"
-	    };
-
-	    var names = ['a', 'b', 'c', 'd'];
-
-	    var generateNameList = function generateNameList() {
-	        return names.map(function (name, i) {
-	            return _react2.default.createElement(
-	                'li',
-	                { key: i },
-	                name
-	            );
-	        });
-	    };
-
-	    // JSX: Event Handler Syntax
-	    var changeHandler = function changeHandler(event) {
-	        console.log(event.target.id);
-	    };
-
-	    return _react2.default.createElement(
-	        'div',
-	        null,
-	        _react2.default.createElement(
-	            'h1',
-	            null,
-	            ' New JS Style '
-	        ),
-	        _react2.default.createElement(
-	            'h2',
-	            null,
-	            ' Example h2 block '
-	        ),
-	        _react2.default.createElement(
-	            'h3',
-	            { className: 'red' },
-	            ' My name is ',
-	            name.first,
-	            ' ',
-	            name.last,
-	            ' '
-	        ),
-	        _react2.default.createElement(Welcome, { first: 'oneLineVersion', last: 'kkk' }),
-	        _react2.default.createElement(WelcomeExplicit, { first: 'returnVersion', last: 'kkk' }),
-	        _react2.default.createElement(
-	            'h2',
-	            null,
-	            ' Example map callbacks in JSX & ES6 '
-	        ),
-	        _react2.default.createElement(
-	            'ul',
-	            null,
-	            names.map(function (name, i) {
-	                return _react2.default.createElement(
-	                    'li',
-	                    { key: i },
-	                    name
-	                );
-	            })
-	        ),
-	        _react2.default.createElement(
-	            'ul',
-	            null,
-	            generateNameList()
-	        ),
-	        _react2.default.createElement('input', { id: 'input-1', onChange: changeHandler })
-	    );
-	};
-
-	// const MyApp = ((props) => {
-	//   const element = (
-	//     <div>
-	//       <h1>Virtual DOM example</h1>
-	//       <h3>Total Rendering times: {props}</h3>
-	//     </div>
-	//
-	//   )
-	//   ReactDOM.render(
-	//       element,
-	//       document.getElementById('root')
-	//   );
-	// })
-	// let counter = 1
-	// // Function used to periodically trigger event handler
-	// setInterval(() => {
-	//   MyApp(counter)
-	//   counter += 1
-	// }, 2000)
-
-	// // This is just another function call
-	_reactDom2.default.render(_react2.default.createElement(App, null), document.getElementById('root'));
+	_reactDom2.default.render(_react2.default.createElement(
+	  'div',
+	  null,
+	  _react2.default.createElement(App, null)
+	), document.getElementById('root'));
 
 /***/ }),
 /* 1 */
@@ -18477,6 +18249,391 @@
 	}
 
 	module.exports = camelize;
+
+/***/ }),
+/* 27 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _Button = __webpack_require__(28);
+
+	var _Button2 = _interopRequireDefault(_Button);
+
+	var _Timer = __webpack_require__(29);
+
+	var _Timer2 = _interopRequireDefault(_Timer);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	// React States
+	var Layout = function (_React$Component) {
+	  _inherits(Layout, _React$Component);
+
+	  // ES6
+	  function Layout() {
+	    _classCallCheck(this, Layout);
+
+	    // States: ReactDOM will auto-detact state changes in ReactDOM
+	    var _this = _possibleConstructorReturn(this, (Layout.__proto__ || Object.getPrototypeOf(Layout)).call(this));
+
+	    _this.state = {
+	      firstName: 'Patrick',
+	      isTimerMounted: true
+	    };
+	    return _this;
+	  }
+
+	  // the function is passed into Object through 'props'
+
+
+	  _createClass(Layout, [{
+	    key: 'changeName',
+	    value: function changeName() {
+	      this.setState({
+	        firstName: 'Jasmine'
+	      });
+	    }
+	  }, {
+	    key: 'toggleTimer',
+	    value: function toggleTimer() {
+	      this.state.isTimerMounted ? this.setState({
+	        isTimerMounted: false
+	      }) : this.setState({
+	        isTimerMounted: true
+	      });
+	    }
+
+	    // <button onClick={this.changeName.bind(this)}>Change firstName</button>
+
+	    // ERROR: Uncaught TypeError: Cannot read property 'setState' of undefined
+	    // Solution: this.hideTimer.bind(this) instead of this.hideTimer
+
+
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	          'h1',
+	          null,
+	          'Index Page '
+	        ),
+	        _react2.default.createElement(
+	          'h1',
+	          null,
+	          'Hello ',
+	          this.state.firstName
+	        ),
+	        _react2.default.createElement(
+	          'p',
+	          null,
+	          'Download the React DevTools for a better development experience: https://fb.me/react-devtools'
+	        ),
+	        _react2.default.createElement(_Button2.default, { firstName: this.state.firstName, changeName: this.changeName.bind(this) }),
+	        this.state.isTimerMounted ? _react2.default.createElement(
+	          'div',
+	          null,
+	          _react2.default.createElement('hr', null),
+	          _react2.default.createElement(_Timer2.default, null),
+	          _react2.default.createElement('hr', null),
+	          _react2.default.createElement(_Timer2.default, null),
+	          _react2.default.createElement('hr', null),
+	          _react2.default.createElement(_Timer2.default, null)
+	        ) : null,
+	        _react2.default.createElement('hr', null),
+	        _react2.default.createElement(
+	          'button',
+	          { onClick: this.toggleTimer.bind(this) },
+	          this.state.isTimerMounted ? 'Hide' : 'Show',
+	          ' All Timers'
+	        )
+	      );
+	    }
+	  }]);
+
+	  return Layout;
+	}(_react2.default.Component);
+
+	exports.default = Layout;
+
+/***/ }),
+/* 28 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Button = function (_React$Component) {
+	  _inherits(Button, _React$Component);
+
+	  function Button() {
+	    _classCallCheck(this, Button);
+
+	    return _possibleConstructorReturn(this, (Button.__proto__ || Object.getPrototypeOf(Button)).call(this));
+	  }
+
+	  _createClass(Button, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'button',
+	        { onClick: this.props.changeName },
+	        'Change firstName: ',
+	        this.props.firstName
+	      );
+	    }
+	  }]);
+
+	  return Button;
+	}(_react2.default.Component);
+
+	exports.default = Button;
+
+/***/ }),
+/* 29 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _TimerHeader = __webpack_require__(30);
+
+	var _TimeButton = __webpack_require__(31);
+
+	var _TimeButton2 = _interopRequireDefault(_TimeButton);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	// State is binded to the class, & will influence any sub-classes that
+	// utilize this state
+
+	var Timer = function (_React$Component) {
+	  _inherits(Timer, _React$Component);
+
+	  function Timer() {
+	    _classCallCheck(this, Timer);
+
+	    var _this = _possibleConstructorReturn(this, (Timer.__proto__ || Object.getPrototypeOf(Timer)).call(this));
+
+	    _this.state = {
+	      time: 0,
+	      isStarted: false
+	      // short-hand for .bind(this)
+	    };_this.handleClick = _this.handleClick.bind(_this);
+	    return _this;
+	  }
+
+	  // Each time reMounted will re-run these initializations
+	  // Much like constructor & destructor
+	  // Callback after the Mount operation
+
+
+	  _createClass(Timer, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      var _this2 = this;
+
+	      // this.startTimer VS this.startTimer()
+	      this.timer = setInterval(function () {
+	        return _this2.startTimer();
+	      }, 1000);
+	      this.setState({
+	        isStarted: true
+	      });
+	    }
+
+	    // Callback before the Unmount operation
+
+	  }, {
+	    key: 'componentWillUnmount',
+	    value: function componentWillUnmount() {
+	      clearInterval(this.timer);
+	    }
+	  }, {
+	    key: 'startTimer',
+	    value: function startTimer() {
+	      this.setState(function (prevState) {
+	        return {
+	          time: prevState.time += 1
+	        };
+	      });
+	      this.setState({
+	        isStarted: true
+	      });
+	    }
+	  }, {
+	    key: 'endTimer',
+	    value: function endTimer() {
+	      clearInterval(this.timer);
+	      this.setState({
+	        isStarted: false
+	      });
+	    }
+	  }, {
+	    key: 'handleClick',
+	    value: function handleClick() {
+	      var _this3 = this;
+
+	      // Operation based on whether the timer is started
+	      this.state.isStarted ? this.endTimer() : this.timer = setInterval(function () {
+	        return _this3.startTimer();
+	      }, 1000);
+	      console.log(this.state.isStarted);
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	          'h2',
+	          null,
+	          'Running Times(s): ',
+	          this.state.time
+	        ),
+	        _react2.default.createElement(_TimerHeader.TimerHeader, { time: this.state.time }),
+	        _react2.default.createElement(
+	          'button',
+	          { onClick: this.handleClick },
+	          'Stop/Resume'
+	        ),
+	        _react2.default.createElement(_TimeButton2.default, { handleClick: this.handleClick, isStarted: this.state.isStarted })
+	      );
+	    }
+	  }]);
+
+	  return Timer;
+	}(_react2.default.Component);
+
+	exports.default = Timer;
+
+/***/ }),
+/* 30 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	   value: true
+	});
+	exports.TimerHeader = undefined;
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var TimerHeader = exports.TimerHeader = function TimerHeader(props) {
+	   return _react2.default.createElement(
+	      'h3',
+	      null,
+	      'Online for ',
+	      props.time,
+	      ' seconds.'
+	   );
+	};
+
+/***/ }),
+/* 31 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var TimeButton = function (_React$Component) {
+	  _inherits(TimeButton, _React$Component);
+
+	  function TimeButton() {
+	    _classCallCheck(this, TimeButton);
+
+	    return _possibleConstructorReturn(this, (TimeButton.__proto__ || Object.getPrototypeOf(TimeButton)).call(this));
+	  }
+
+	  _createClass(TimeButton, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'button',
+	        { onClick: this.props.handleClick },
+	        this.props.isStarted ? 'Stop' : 'Resume'
+	      );
+	    }
+	  }]);
+
+	  return TimeButton;
+	}(_react2.default.Component);
+
+	exports.default = TimeButton;
 
 /***/ })
 /******/ ]);
