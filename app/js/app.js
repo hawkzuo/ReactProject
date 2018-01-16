@@ -6,19 +6,20 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Layout from './components/04Layout';
-import data from '../data/data';
-// A simple timer example
-class App extends React.Component {
+// React-Router
+import {Router,Route, hashHistory} from 'react-router';
 
-  render() {
-    return  <Layout names={data}/>
-  }
-}
+import Layout from './components/05Layout';
+import Timer from './components/03Timer';
+import FilterableNameList from './components/05FilterableNameList';
 
+// React-Router is not directly accessed by HTTP GET method
 ReactDOM.render(
-    <div>
-      <App />
-    </div>,
+    <Router history={hashHistory}>
+      <Route path="/" component={Layout}>
+        <Route path="timer" component={Timer} />
+        <Route path="namelist" component={FilterableNameList} />
+      </Route>
+    </Router>,
     document.getElementById('root')
 );
